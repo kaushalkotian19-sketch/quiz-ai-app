@@ -5,18 +5,10 @@ const optionsEl = document.getElementById("options");
 const timerEl = document.getElementById("timer");
 const resultEl = document.getElementById("result");
 
-let questions = [
-  {
-    question: "What is 2 + 2?",
-    options: ["3", "4", "5", "6"],
-    answer: "4"
-  },
-  {
-    question: "Capital of India?",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
-    answer: "Delhi"
-  }
-];
+async function fetchQuestions() {
+  const res = await fetch("http://localhost:3000/quiz");
+  return await res.json();
+}
 
 let current = 0;
 let score = 0;

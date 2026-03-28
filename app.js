@@ -14,7 +14,10 @@ let current = 0;
 let score = 0;
 let timer;
 
-startBtn.onclick = () => {
+startBtn.onclick = async () => {
+  startBtn.innerText = "Loading...";
+  questions = await fetchQuestions();
+
   startBtn.style.display = "none";
   quizDiv.style.display = "block";
   loadQuestion();
